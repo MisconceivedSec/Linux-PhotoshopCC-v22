@@ -10,7 +10,7 @@ I forked this repo and adjusted the script to keep the files that are downloaded
 Also, installing `vdk3d proton` gave me some problems with my GPU, so I made it optional.
 
 ## Requirements
-- an internet connection
+- An internet connection
 - wine >=6.1 (Avoid 6.20 to 6.22)
 - appmenu-gtk-module
 - tar
