@@ -24,7 +24,7 @@ Also, installing `vdk3d proton` gave me some problems with my GPU, so I made it 
 ```bash
 # Clone repo
 
-git clone https://github.com/YoungFellow-le/Photoshop-CC2021-Linux.git
+git clone https://github.com/YoungFellow-le/Linux-PhotoshopCC-v22.git
 cd Photoshop-CC2021-Linux
 
 # To install:
