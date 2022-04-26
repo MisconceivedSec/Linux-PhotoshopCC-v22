@@ -21,6 +21,8 @@ Also, installing `vdk3d proton` gave me some problems with my GPU, so I made it 
 
 ## How to install:
 
+**NOTE: _CLONE THIS REPO TO THE FOLDER YOU WANT TO KEEP PHOTOSHOP IN, EVERYTHING TO DO WITH THE PHTOTOSHOP INSTALLATION WILL HAPPEN IN HERE_**
+
 ```bash
 # Clone repo
 
@@ -42,3 +44,17 @@ sh uninstaller.sh
 <br>
 
 **2-** **ONLY IF YOU INSTALLED VKD3D PROTON**:  Go to: `Edit -> preferences -> Camera raw... -> performance` and set "_Use graphic processor_" to "_Off_"
+
+## To change the wine theme to light Windows 10:
+  ```bash
+  # Navigate to the Photoshop clone folder e.g.
+  
+  cd ~/Documents/Linux-PhotoshopCC-v22
+  
+  # Open winecfg
+  
+  WINEPREFIX=$PWD/PS-prefix winecfg
+  
+  # Now navigate to the "Desktop integration" tab and change the theme to "Light"
+  
+  ```
