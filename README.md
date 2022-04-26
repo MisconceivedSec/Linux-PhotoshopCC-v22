@@ -1,9 +1,9 @@
-# Photoshop-CC2021-Linux
+# Photoshop CC 2021 on Linux!
 
 ![alt text](https://github.com/YoungFellow-le/Photoshop-CC2021-Linux/blob/main/screenshot.png?raw=false)
 
 **DISCLAIMER :**
-**Please use this software only if you have an active Photoshop subscription. I'm not responsable of any use without subscription.**
+**Please use this software only if you have an active Photoshop subscription. I'm not responsible of any use without subscription.**
 
 I forked this repo and adjusted the script to keep the files that are downloaded, so that they don't have to be re-downloaded every time you want to reinstall.
 
@@ -35,3 +35,10 @@ sh installer.sh
 
 sh uninstaller.sh
 ```
+## Configure Photoshop:
+<br>
+
+**1-** Launch Photoshop and go to: `Edit -> preferences -> tools`, and uncheck "_Show Tooltips_" (You will not be able to use any plugins otherwise).<br>
+<br>
+
+**2-** **ONLY IF YOU INSTALLED VKD3D PROTON**:  Go to: `Edit -> preferences -> Camera raw... -> performance` and set "_Use graphic processor_" to "_Off_"
