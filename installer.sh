@@ -82,9 +82,10 @@ echo -e  "**************\nCopying launcher files..."
 sleep 1
 cp -r allredist/launcher.sh ~/Software/ADOBE/My-PS/PS-Prefix/drive_c
 cp -r allredist/photoshop.png ~/.local/share/icons
-echo -e "[Desktop Entry]\nName=Photoshop CC\nExec=\"$PWD/PS-prefix/drive_c/launcher.sh %F\"\nType=Application\nComment=Photoshop CC 2021\nCategories=Graphics;2DGraphics;RasterGraphics;GTK;\nIcon=$PWD/allredist/photoshop.png\nStartupWMClass=photoshop.exe" >> allredist/photoshop.desktop
+echo -e "[Desktop Entry]\nName=Photoshop CC\nExec=WINEPREFIX=\"$PWD/PS-prefix wine64 $PWD/PS-prefix/drive_c/Program\ Files/Adobe/Adobe\ Photoshop\ 2021/photoshop.exe\"\nType=Application\nComment=Photoshop CC 2021\nCategories=Graphics;2DGraphics;RasterGraphics;GTK;\nIcon=$PWD/allredist/photoshop.png\nStartupWMClass=photoshop.exe" >> allredist/photoshop.desktop
 chmod +x photoshop.desktop
 mv photoshop.desktop ~/.local/share/applications/photoshop.desktop
+rm -rf allredist
 sleep 1
 
 if [ $cameraraw = "1" ]
