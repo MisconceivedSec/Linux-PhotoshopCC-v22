@@ -15,6 +15,7 @@ Also, installing `vdk3d proton` gave me some problems with my GPU, so I made it 
 - appmenu-gtk-module
 - tar
 - wget
+- curl
 - All R/W rights on your home folder and the installer folder
 - Vulkan capable GPU or APU (optional)
 
@@ -58,3 +59,4 @@ sh uninstaller.sh
   # Now navigate to the "Desktop integration" tab and change the theme to "Light"
   
   ```
+## How to run Photoshop:
