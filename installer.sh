@@ -100,7 +100,7 @@ sleep 1
 echo -e "**************\nCopying launcher files...\n"
 sleep 1
 cp -r allredist/photoshop.png ~/.local/share/icons
-echo -e "[Desktop Entry]\nName=Photoshop CC\nExec=cd $PWD/PS-prefix/drive_c && WINEPREFIX=\"$PWD/PS-prefix wine64 $PWD/PS-prefix/drive_c/Program\ Files/Adobe/Adobe\ Photoshop\ 2021/photoshop.exe\"\nType=Application\nComment=Photoshop CC 2021\nCategories=Graphics;2DGraphics;RasterGraphics;GTK;\nIcon=$PWD/allredist/photoshop.png\nStartupWMClass=photoshop.exe" >> allredist/photoshop.desktop
+echo -e "[Desktop Entry]\nName=Photoshop CC\nExec=cd $PWD/PS-prefix/drive_c && WINEPREFIX=\"$PWD/PS-prefix wine64 $PWD/PS-prefix/drive_c/Program\ Files/Adobe/Adobe\ Photoshop\ 2021/photoshop.exe\"\nType=Application\nComment=Photoshop CC 2021\nCategories=Graphics;2DGraphics;RasterGraphics;GTK;\nIcon=$PWD/allredist/photoshop.png\nStartupWMClass=photoshop.exe\nMimeType=image/png;image/psd;image;" >> allredist/photoshop.desktop
 chmod +x photoshop.desktop
 mv allredist/photoshop.desktop ~/.local/share/applications/photoshop.desktop
 rm -rf allredist
