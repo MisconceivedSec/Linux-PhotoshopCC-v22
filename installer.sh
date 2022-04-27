@@ -4,12 +4,12 @@ echo -e "**************\nStarting PS installer...\n"
 sleep 1
 
 cameraraw=1
-echo -e "**************\nWould you like to install Adobe Camera Raw at the end?\n"
+echo -e "**************\nWould you like to install Adobe Camera Raw at the end?"
 read -p "(1 - Yes, 0 - No): " cameraraw
 sleep 1
 
 vdk3d=1
-echo -e "**************\nWould you like to install vdk3d proton?\n"
+echo -e "**************\nWould you like to install vdk3d proton?"
 read -p "(1 - Yes, 0 - No): " vdk3d
 sleep 1
 

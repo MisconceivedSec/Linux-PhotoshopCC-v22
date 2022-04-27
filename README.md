@@ -26,8 +26,12 @@ Also, installing `vdk3d proton` gave me some problems with my GPU, so I made it 
 
 >_**NOTE 2:** CLONE THIS REPO TO THE FOLDER YOU WANT TO KEEP PHOTOSHOP IN, EVERYTHING TO DO WITH THE PHTOTOSHOP INSTALLATION WILL HAPPEN IN HERE_
 
+>_**NOTE 3:** THE ONLY FILE THAT WILL BE INSTALLED OUTSIDE THE CLONED FOLDER IS THE DESKTOP ENTRY: ~/.local/share/applications/photoshop.desktop
+
+Open your terminal and:
+
 ```bash
-# Clone repo
+# Clone the repo
 
 git clone https://github.com/YoungFellow-le/Linux-PhotoshopCC-v22.git
 cd Photoshop-CC2021-Linux
@@ -36,9 +40,33 @@ cd Photoshop-CC2021-Linux
 
 sh installer.sh
 
-# To uninstall:
+# The installer will ask you if you want to install the Adobe Camera Raw Plugin (that is yes in most cases)
+# If you don't want to install it the enter '0', otherwise enter '1' e.g.
+
+"Would you like to install Adobe Camera Raw at the end?
+(1 - Yes, 0 - No): 1"
+
+# The installer will also ask you weather you want to install vdk3d proton,
+# this utility allows you to use your GPU with wine.
+
+"Would you like to install Adobe Camera Raw at the end?
+(1 - Yes, 0 - No): 0"
+
+# However, it can be a bit buggy. There for it's up to you weather to install it or not, e.g.
+# You can always install it afterwards by running the following command in the "Linux-PhotoshopCC-v22" folder:
+
+WINEPREFIX=$PWD/PS-Prefix/ sh allredist/setup_vkd3d_proton.sh install
+
+# And to uninstall:
+
+WINEPREFIX=$PWD/PS-Prefix/ sh allredist/setup_vkd3d_proton.sh uninstall
+
+
+# To uninstall Photoshop:
 
 sh uninstaller.sh
+
+# If you want to completely remove this installer, then delete the cloned folder.
 ```
 ## Configure Photoshop:
 <br>
@@ -46,7 +74,7 @@ sh uninstaller.sh
 **1-** Launch Photoshop and go to: `Edit -> preferences -> tools`, and uncheck "_Show Tooltips_" (You will not be able to use any plugins otherwise).<br>
 <br>
 
-**2-** **ONLY IF YOU INSTALLED VKD3D PROTON**:  Go to: `Edit -> preferences -> Camera raw... -> performance` and set "_Use graphic processor_" to "_Off_"
+**2-** **ONLY IF YOU INSTALLED VKD3D PROTON**:  Go to: `Edit -> preferences -> Camera raw... -> performance` and set "_Use graphic processor" to "_Off_"
 
 ## To change the wine theme to light Windows 10:
   ```bash
