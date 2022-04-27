@@ -20,9 +20,11 @@ Also, installing `vdk3d proton` gave me some problems with my GPU, so I made it 
 - Vulkan capable GPU or APU (optional)
 
 
-## How to install:
+## How to install:_
 
-**NOTE: _CLONE THIS REPO TO THE FOLDER YOU WANT TO KEEP PHOTOSHOP IN, EVERYTHING TO DO WITH THE PHTOTOSHOP INSTALLATION WILL HAPPEN IN HERE_**
+>_**NOTE:** The total download size, is about 1.9GB_
+
+>_**NOTE 2:** CLONE THIS REPO TO THE FOLDER YOU WANT TO KEEP PHOTOSHOP IN, EVERYTHING TO DO WITH THE PHTOTOSHOP INSTALLATION WILL HAPPEN IN HERE_
 
 ```bash
 # Clone repo
