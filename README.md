@@ -60,3 +60,10 @@ sh uninstaller.sh
   
   ```
 ## How to run Photoshop:
+
+After you run the installer, open your application menu, and search for "Photoshop CC", and click on it. As simple as that!
+
+![Screenshot_20220427_103958](https://user-images.githubusercontent.com/79008923/165448708-b6ce4ac1-8f55-4f48-968d-9608c765a318.png)
+
+
+
