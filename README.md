@@ -3,7 +3,7 @@
 ![alt text](https://github.com/YoungFellow-le/Photoshop-CC2021-Linux/blob/main/screenshot.png?raw=false)
 
 **DISCLAIMER :**
-**Please use this software only if you have an active Photoshop subscription. I'm not responsible of any use without subscription.**
+**Please use this software only if you have an active Photoshop subscription. I'm not responsible for any illegal use of this product.**
 
 I forked this repo and adjusted the script to keep the files that are downloaded, so that they don't have to be re-downloaded every time you want to reinstall.
 
@@ -22,7 +22,7 @@ Also, installing `vdk3d proton` gave me some problems with my GPU, so I made it 
 
 ## How to install:_
 
->_**NOTE:** The total download size, is about 1.9GB_
+>_**NOTE:** The total download size, is about 1.6GB_
 
 >_**NOTE 2:** CLONE THIS REPO TO THE FOLDER YOU WANT TO KEEP PHOTOSHOP IN, EVERYTHING TO DO WITH THE PHTOTOSHOP INSTALLATION WILL HAPPEN IN HERE_
 
@@ -34,11 +34,11 @@ Open your terminal and:
 # Clone the repo
 
 git clone https://github.com/YoungFellow-le/Linux-PhotoshopCC-v22.git
-cd Photoshop-CC2021-Linux
+cd Linux-PhotoshopCC-v22
 
 # To install:
 
-sh installer.sh
+bash installer.sh
 
 # The installer will ask you if you want to install the Adobe Camera Raw Plugin (that is yes in most cases)
 # If you don't want to install it the enter '0', otherwise enter '1' e.g.
@@ -64,7 +64,7 @@ WINEPREFIX=$PWD/PS-Prefix/ sh allredist/setup_vkd3d_proton.sh uninstall
 
 # To uninstall Photoshop:
 
-sh uninstaller.sh
+bash uninstaller.sh
 
 # If you want to completely remove this installer, then delete the cloned folder.
 ```

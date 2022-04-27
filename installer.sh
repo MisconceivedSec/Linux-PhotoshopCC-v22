@@ -15,6 +15,7 @@ sleep 1
 
 echo -e "**************\nMaking PS prefix...\n"
 sleep 1
+rm -rf $PWD/PS-Prefix
 mkdir $PWD/PS-Prefix/
 sleep 1
 
@@ -44,7 +45,11 @@ curl -L "https://download.adobe.com/pub/adobe/photoshop/cameraraw/win/12.x/Camer
 else
 echo -e "\nThe file CameraRaw_12_2_1.exe exists\n"
 fi
+sleep 1
 
+
+echo -e "**************\nExtracting files...\n"
+sleep 1
 rm -fr allredist
 rm -fr "Adobe Photoshop 2021"
 tar -xf AdobePhotoshop2021.tar.xz
@@ -66,9 +71,6 @@ sleep 1
 echo -e "**************\nInstalling & configuring winetricks components...\n"
 WINEPREFIX=$PWD/PS-Prefix/ ./winetricks fontsmooth=rgb gdiplus msxml3 msxml6 atmlib corefonts dxvk
 sleep 1
-
-echo -e "**************\nSetting light theme to prefix...\n"
-
 
 echo -e "**************\nInstalling redist components...\n"
 sleep 1
@@ -100,7 +102,7 @@ sleep 1
 echo -e "**************\nCopying launcher files...\n"
 sleep 1
 cp -r allredist/photoshop.png ~/.local/share/icons
-echo -e "[Desktop Entry]\nName=Photoshop CC\nExec=cd $PWD/PS-prefix/drive_c && WINEPREFIX=\"$PWD/PS-prefix wine64 $PWD/PS-prefix/drive_c/Program\ Files/Adobe/Adobe\ Photoshop\ 2021/photoshop.exe\"\nType=Application\nComment=Photoshop CC 2021\nCategories=Graphics;2DGraphics;RasterGraphics;GTK;\nIcon=$PWD/allredist/photoshop.png\nStartupWMClass=photoshop.exe\nMimeType=image/png;image/psd;image;" >> allredist/photoshop.desktop
+echo -e "[Desktop Entry]\nName=Photoshop CC\nExec=cd $PWD/PS-Prefix/drive_c && WINEPREFIX=\"$PWD/PS-Prefix wine64 $PWD/PS-Prefix/drive_c/Program\ Files/Adobe/Adobe\ Photoshop\ 2021/photoshop.exe\"\nType=Application\nComment=Photoshop CC 2021\nCategories=Graphics;2DGraphics;RasterGraphics;GTK;\nIcon=$PWD/allredist/photoshop.png\nStartupWMClass=photoshop.exe\nMimeType=image/png;image/psd;image;" >> allredist/photoshop.desktop
 chmod +x photoshop.desktop
 mv allredist/photoshop.desktop ~/.local/share/applications/photoshop.desktop
 rm -rf allredist
