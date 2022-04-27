@@ -20,7 +20,7 @@ Also, installing `vdk3d proton` gave me some problems with my GPU, so I made it 
 - Vulkan capable GPU or APU (optional)
 
 
-## How to install:_
+## How to install:
 
 >_**NOTE:** The total download size, is about 1.6GB_
 
