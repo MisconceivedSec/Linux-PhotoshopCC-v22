@@ -22,7 +22,7 @@ Also, installing `vdk3d proton` gave me some problems with my GPU, so I made it 
 
 ## How to install:_
 
->_**NOTE:** The total download size, is about 1.9GB_
+>_**NOTE:** The total download size, is about 1.2GB_
 
 >_**NOTE 2:** CLONE THIS REPO TO THE FOLDER YOU WANT TO KEEP PHOTOSHOP IN, EVERYTHING TO DO WITH THE PHTOTOSHOP INSTALLATION WILL HAPPEN IN HERE_
 
