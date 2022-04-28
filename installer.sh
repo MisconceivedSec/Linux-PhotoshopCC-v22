@@ -107,8 +107,10 @@ sleep 1
 prefix=$PWD/PS-Prefix
 pwd=$PWD
 cp installers/allredist/photoshop.png .photoshop.png
-echo -e "#\!/bin/bash\ncd $PWD/PS-Prefix/drive_c\nWINEPREFIX=\"$prefix\" wine64 \"$pwd/PS-Prefix/drive_c/Program Files/Adobe/Adobe Photoshop 2021/photoshop.exe\"" >> .launcher.sh
-chmod +x .launcher.sh
+rm launcher.sh
+echo -e "#\!/bin/bash\ncd $PWD/PS-Prefix/drive_c\nWINEPREFIX=\"$prefix\" wine64 \"$pwd/PS-Prefix/drive_c/Program Files/Adobe/Adobe Photoshop 2021/photoshop.exe\"" >> launcher.sh
+chmod +x launcher.sh
+rm photoshop.desktop
 echo -e "[Desktop Entry]\nName=Photoshop CC\nExec=cd $PWD/PS-Prefix/drive_c && WINEPREFIX=\"$prefix\" wine64 \"$pwd/PS-Prefix/drive_c/Program Files/Adobe/Adobe Photoshop 2021/photoshop.exe\"\nType=Application\nComment=Photoshop CC 2021\nCategories=Graphics;2DGraphics;RasterGraphics;GTK;\nIcon=$PWD/.photoshop.png\nStartupWMClass=photoshop.exe\nMimeType=image/png;image/psd;image;" >> photoshop.desktop
 chmod +x photoshop.desktop
 mv photoshop.desktop ~/.local/share/applications/photoshop.desktop
