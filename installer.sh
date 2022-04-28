@@ -96,15 +96,15 @@ fi
 echo -e "**************\nMaking PS directory and copying files...\n"
 sleep 1
 mkdir $PWD/PS-Prefix/drive_c/Program\ Files/Adobe
-mv Adobe\ Photoshop\ 2021 $PWD/PS-Prefix/drive_c/Program\ Files/Adobe/Adobe\ Photoshop\ 2021
+cp Adobe\ Photoshop\ 2021 $PWD/PS-Prefix/drive_c/Program\ Files/Adobe/Adobe\ Photoshop\ 2021
 sleep 1
 
 echo -e "**************\nCopying launcher files...\n"
 sleep 1
-cp -r allredist/photoshop.png ~/.local/share/icons
-echo -e "[Desktop Entry]\nName=Photoshop CC\nExec=cd $PWD/PS-Prefix/drive_c && WINEPREFIX=\"$PWD/PS-Prefix wine64 $PWD/PS-Prefix/drive_c/Program\ Files/Adobe/Adobe\ Photoshop\ 2021/photoshop.exe\"\nType=Application\nComment=Photoshop CC 2021\nCategories=Graphics;2DGraphics;RasterGraphics;GTK;\nIcon=$PWD/allredist/photoshop.png\nStartupWMClass=photoshop.exe\nMimeType=image/png;image/psd;image;" >> allredist/photoshop.desktop
+cp -r allredist/photoshop.png .photoshop.png
+echo -e "[Desktop Entry]\nName=Photoshop CC\nExec=cd $PWD/PS-Prefix/drive_c && WINEPREFIX=\"$PWD/PS-Prefix\" wine64 \"$PWD/PS-Prefix/drive_c/Program Files/Adobe/Adobe Photoshop 2021/photoshop.exe\"\nType=Application\nComment=Photoshop CC 2021\nCategories=Graphics;2DGraphics;RasterGraphics;GTK;\nIcon=$PWD/.photoshop.png\nStartupWMClass=photoshop.exe\nMimeType=image/png;image/psd;image;" >> photoshop.desktop
 chmod +x photoshop.desktop
-mv allredist/photoshop.desktop ~/.local/share/applications/photoshop.desktop
+mv photoshop.desktop ~/.local/share/applications/photoshop.desktop
 rm -rf allredist
 sleep 1
 
