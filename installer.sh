@@ -28,20 +28,22 @@ sleep 1
 echo -e "**************\nDownloading Photoshop, CameraRaw, and allredist files if not already downloaded...\n"
 sleep 1
 
+mkdir $PWD/installers
+
 if ! [ -f allredist.tar.xz ]; then
-curl -L "https://drive.google.com/uc?export=download&id=1qcmyHzWerZ39OhW0y4VQ-hOy7639bJPO" > allredist.tar.xz
+curl -L "https://drive.google.com/uc?export=download&id=1qcmyHzWerZ39OhW0y4VQ-hOy7639bJPO" > installers/allredist.tar.xz
 else
 echo -e "\nThe file allredist.tar.xz exists\n"
 fi
 
 if ! [ -f AdobePhotoshop2021.tar.xz ]; then
-curl -L "https://lulucloud.mywire.org/FileHosting/GithubProjects/AdobePhotoshop2021.tar.xz" > AdobePhotoshop2021.tar.xz
+curl -L "https://lulucloud.mywire.org/FileHosting/GithubProjects/AdobePhotoshop2021.tar.xz" > installers/AdobePhotoshop2021.tar.xz
 else
 echo -e "\nThe file AdobePhotoshop2021.tar.xz exists\n"
 fi
 
 if ! [ -f CameraRaw_12_2_1.exe ]; then
-curl -L "https://download.adobe.com/pub/adobe/photoshop/cameraraw/win/12.x/CameraRaw_12_2_1.exe" > CameraRaw_12_2_1.exe
+curl -L "https://download.adobe.com/pub/adobe/photoshop/cameraraw/win/12.x/CameraRaw_12_2_1.exe" > installers/CameraRaw_12_2_1.exe
 else
 echo -e "\nThe file CameraRaw_12_2_1.exe exists\n"
 fi
@@ -50,11 +52,11 @@ sleep 1
 
 echo -e "**************\nExtracting files...\n"
 sleep 1
-rm -fr allredist
-rm -fr "Adobe Photoshop 2021"
-tar -xf AdobePhotoshop2021.tar.xz
-mkdir allredist
-tar -xf allredist.tar.xz
+rm -fr installers/allredist
+rm -fr "installers/Adobe Photoshop 2021"
+tar -xf installers/AdobePhotoshop2021.tar.xz
+mkdir installers/allredist
+tar -xf installers/allredist.tar.xz
 sleep 1
 
 
@@ -89,23 +91,25 @@ if [ $vdk3d = "1" ]
 then
 echo -e "**************\nInstalling vdk3d proton...\n"
 sleep 1
-WINEPREFIX=$PWD/PS-Prefix/ sh allredist/setup_vkd3d_proton.sh install
+WINEPREFIX=$PWD/PS-Prefix/ sh installers/allredist/setup_vkd3d_proton.sh install
 sleep 1
 fi
 
 echo -e "**************\nMaking PS directory and copying files...\n"
 sleep 1
 mkdir $PWD/PS-Prefix/drive_c/Program\ Files/Adobe
-cp Adobe\ Photoshop\ 2021 $PWD/PS-Prefix/drive_c/Program\ Files/Adobe/Adobe\ Photoshop\ 2021
+cp installers/Adobe\ Photoshop\ 2021 $PWD/PS-Prefix/drive_c/Program\ Files/Adobe/Adobe\ Photoshop\ 2021
 sleep 1
 
 echo -e "**************\nCopying launcher files...\n"
 sleep 1
-cp -r allredist/photoshop.png .photoshop.png
-echo -e "[Desktop Entry]\nName=Photoshop CC\nExec=cd $PWD/PS-Prefix/drive_c && WINEPREFIX=\"$PWD/PS-Prefix\" wine64 \"$PWD/PS-Prefix/drive_c/Program Files/Adobe/Adobe Photoshop 2021/photoshop.exe\"\nType=Application\nComment=Photoshop CC 2021\nCategories=Graphics;2DGraphics;RasterGraphics;GTK;\nIcon=$PWD/.photoshop.png\nStartupWMClass=photoshop.exe\nMimeType=image/png;image/psd;image;" >> photoshop.desktop
+cp -r installers/allredist/photoshop.png .photoshop.png
+echo -e "#\!/bin/bash\ncd $PWD/PS-Prefix/drive_c\nWINEPREFIX=\"$PWD/PS-Prefix\" wine64 \"$PWD/PS-Prefix/drive_c/Program Files/Adobe/Adobe Photoshop 2021/photoshop.exe\"" >> .launcher.sh
+chmod +x .launcher.sh
+echo -e "[Desktop Entry]\nName=Photoshop CC\nExec=bash $PWD/.launcher.sh\nType=Application\nComment=Photoshop CC 2021\nCategories=Graphics;2DGraphics;RasterGraphics;GTK;\nIcon=$PWD/.photoshop.png\nStartupWMClass=photoshop.exe\nMimeType=image/png;image/psd;image;" >> photoshop.desktop
 chmod +x photoshop.desktop
 mv photoshop.desktop ~/.local/share/applications/photoshop.desktop
-rm -rf allredist
+rm -rf installers/allredist
 sleep 1
 
 if [ $cameraraw = "1" ]
