@@ -108,10 +108,10 @@ prefix=$PWD/PS-Prefix
 pwd=$PWD
 cp installers/allredist/photoshop.png .photoshop.png
 rm launcher.sh
-echo -e "#\!/bin/bash\ncd $PWD/PS-Prefix/drive_c\nWINEPREFIX=\"$prefix\" wine64 \"$pwd/PS-Prefix/drive_c/Program Files/Adobe/Adobe Photoshop 2021/photoshop.exe\"" >> launcher.sh
+echo -e "#\!/bin/bash\ncd \"$PWD/PS-Prefix/drive_c/Program Files/Adobe/Adobe Photoshop 2021/\" && WINEPREFIX=\"$prefix\" wine photoshop.exe" >> launcher.sh
 chmod +x launcher.sh
 rm photoshop.desktop
-echo -e "[Desktop Entry]\nName=Photoshop CC\nExec=cd $PWD/PS-Prefix/drive_c && WINEPREFIX=\"$prefix\" wine64 \"$pwd/PS-Prefix/drive_c/Program Files/Adobe/Adobe Photoshop 2021/photoshop.exe\"\nType=Application\nComment=Photoshop CC 2021\nCategories=Graphics;2DGraphics;RasterGraphics;GTK;\nIcon=$PWD/.photoshop.png\nStartupWMClass=photoshop.exe\nMimeType=image/png;image/psd;image;" >> photoshop.desktop
+echo -e "[Desktop Entry]\nName=Photoshop CC\nExec=cd $PWD/PS-Prefix/drive_c/Program Files/Adobe/Adobe Photoshop 2021/ && WINEPREFIX=\"$prefix\" wine photoshop.exe\"\nType=Application\nComment=Photoshop CC 2021\nCategories=Graphics;2DGraphics;RasterGraphics;GTK;\nIcon=$PWD/.photoshop.png\nStartupWMClass=photoshop.exe\nMimeType=image/png;image/psd;image;" >> photoshop.desktop
 chmod +x photoshop.desktop
 mv photoshop.desktop ~/.local/share/applications/photoshop.desktop
 rm -rf installers/allredist
@@ -126,3 +126,4 @@ sleep 1
 fi
 
 echo -e "**************\nAdobe Photoshop CC 2021 Installed!\n"
+echo -e "Use this command to run Photoshop if the launcher and desktop files don't work, then make your own desktop entry:\ncd \"$PWD/PS-Prefix/drive_c/Program Files/Adobe/Adobe Photoshop 2021/\" && WINEPREFIX=\"$prefix\" wine photoshop.exe"
