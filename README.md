@@ -95,5 +95,7 @@ After you run the installer, open your application menu, and search for "Photosh
 
 ![Screenshot_20220427_103958](https://user-images.githubusercontent.com/79008923/165448708-b6ce4ac1-8f55-4f48-968d-9608c765a318.png)
 
+>_**NOTE:** If you do not find the desktop entry, or if it doesn't work, then run the command that is in the `launcher.sh` file. This command should launch Photoshop for you, or it will at least tell you what the error is. (This command is also printed at the end of the installation)_
+
 
 

@@ -28,35 +28,35 @@ sleep 1
 echo -e "**************\nDownloading Photoshop, CameraRaw, and allredist files if not already downloaded...\n"
 sleep 1
 
-mkdir installers
+mkdir -p Installers
 
-if ! [ -f installers/allredist.tar.xz ]; then
-curl -L "https://drive.google.com/uc?export=download&id=1qcmyHzWerZ39OhW0y4VQ-hOy7639bJPO" > installers/allredist.tar.xz
+if ! [ -f Installers/allredist.tar.xz ]; then
+curl -L "https://drive.google.com/uc?export=download&id=1qcmyHzWerZ39OhW0y4VQ-hOy7639bJPO" > Installers/allredist.tar.xz
 else
-echo -e "\nThe file allredist.tar.xz exists\n"
+echo -e "The file allredist.tar.xz exists"
 fi
 
-if ! [ -f installers/AdobePhotoshop2021.tar.xz ]; then
-curl -L "https://lulucloud.mywire.org/FileHosting/GithubProjects/AdobePhotoshop2021.tar.xz" > installers/AdobePhotoshop2021.tar.xz
+if ! [ -f Installers/AdobePhotoshop2021.tar.xz ]; then
+curl -L "https://lulucloud.mywire.org/FileHosting/GithubProjects/AdobePhotoshop2021.tar.xz" > Installers/AdobePhotoshop2021.tar.xz
 else
-echo -e "\nThe file AdobePhotoshop2021.tar.xz exists\n"
+echo -e "The file AdobePhotoshop2021.tar.xz exists"
 fi
 
-if ! [ -f installers/CameraRaw_12_2_1.exe ]; then
-curl -L "https://download.adobe.com/pub/adobe/photoshop/cameraraw/win/12.x/CameraRaw_12_2_1.exe" > installers/CameraRaw_12_2_1.exe
+if ! [ -f Installers/CameraRaw_12_2_1.exe ]; then
+curl -L "https://download.adobe.com/pub/adobe/photoshop/cameraraw/win/12.x/CameraRaw_12_2_1.exe" > Installers/CameraRaw_12_2_1.exe
 else
-echo -e "\nThe file CameraRaw_12_2_1.exe exists\n"
+echo -e "The file CameraRaw_12_2_1.exe exists\n"
 fi
 sleep 1
 
 
 echo -e "**************\nExtracting files...\n"
 sleep 1
-rm -fr installers/allredist
-rm -fr "installers/Adobe Photoshop 2021"
-tar -xf installers/AdobePhotoshop2021.tar.xz
-mkdir installers/allredist
-tar -xf installers/allredist.tar.xz
+rm -fr Installers/allredist
+rm -fr "Installers/Adobe Photoshop 2021"
+tar -xvf Installers/AdobePhotoshop2021.tar.xz -C Installers/
+mkdir Installers/allredist
+tar -xvf Installers/allredist.tar.xz -C Installers/
 sleep 1
 
 
@@ -76,14 +76,14 @@ sleep 1
 
 echo -e "**************\nInstalling redist components...\n"
 sleep 1
-WINEPREFIX=$PWD/PS-Prefix/ wine installers/allredist/redist/2010/vcredist_x64.exe /q /norestart
-WINEPREFIX=$PWD/PS-Prefix/ wine installers/allredist/redist/2010/vcredist_x86.exe /q /norestart
-WINEPREFIX=$PWD/PS-Prefix/ wine installers/allredist/redist/2012/vcredist_x86.exe /install /quiet /norestart
-WINEPREFIX=$PWD/PS-Prefix/ wine installers/allredist/redist/2012/vcredist_x64.exe /install /quiet /norestart
-WINEPREFIX=$PWD/PS-Prefix/ wine installers/allredist/redist/2013/vcredist_x86.exe /install /quiet /norestart
-WINEPREFIX=$PWD/PS-Prefix/ wine installers/allredist/redist/2013/vcredist_x64.exe /install /quiet /norestart
-WINEPREFIX=$PWD/PS-Prefix/ wine installers/allredist/redist/2019/VC_redist.x64.exe /install /quiet /norestart
-WINEPREFIX=$PWD/PS-Prefix/ wine installers/allredist/redist/2019/VC_redist.x86.exe /install /quiet /norestart
+WINEPREFIX=$PWD/PS-Prefix/ wine Installers/allredist/redist/2010/vcredist_x64.exe /q /norestart
+WINEPREFIX=$PWD/PS-Prefix/ wine Installers/allredist/redist/2010/vcredist_x86.exe /q /norestart
+WINEPREFIX=$PWD/PS-Prefix/ wine Installers/allredist/redist/2012/vcredist_x86.exe /install /quiet /norestart
+WINEPREFIX=$PWD/PS-Prefix/ wine Installers/allredist/redist/2012/vcredist_x64.exe /install /quiet /norestart
+WINEPREFIX=$PWD/PS-Prefix/ wine Installers/allredist/redist/2013/vcredist_x86.exe /install /quiet /norestart
+WINEPREFIX=$PWD/PS-Prefix/ wine Installers/allredist/redist/2013/vcredist_x64.exe /install /quiet /norestart
+WINEPREFIX=$PWD/PS-Prefix/ wine Installers/allredist/redist/2019/VC_redist.x64.exe /install /quiet /norestart
+WINEPREFIX=$PWD/PS-Prefix/ wine Installers/allredist/redist/2019/VC_redist.x86.exe /install /quiet /norestart
 sleep 1
 
 
@@ -91,14 +91,14 @@ if [ $vdk3d = "1" ]
 then
 echo -e "**************\nInstalling vdk3d proton...\n"
 sleep 1
-WINEPREFIX=$PWD/PS-Prefix/ sh installers/allredist/setup_vkd3d_proton.sh install
+WINEPREFIX=$PWD/PS-Prefix/ sh Installers/allredist/setup_vkd3d_proton.sh install
 sleep 1
 fi
 
 echo -e "**************\nMaking PS directory and copying files...\n"
 sleep 1
 mkdir $PWD/PS-Prefix/drive_c/Program\ Files/Adobe
-cp installers/Adobe\ Photoshop\ 2021 $PWD/PS-Prefix/drive_c/Program\ Files/Adobe/Adobe\ Photoshop\ 2021
+mv Installers/Adobe\ Photoshop\ 2021 $PWD/PS-Prefix/drive_c/Program\ Files/Adobe/Adobe\ Photoshop\ 2021
 sleep 1
 
 echo -e "**************\nCopying launcher files...\n"
@@ -106,24 +106,24 @@ echo -e "**************\nCopying launcher files...\n"
 sleep 1
 prefix=$PWD/PS-Prefix
 pwd=$PWD
-cp installers/allredist/photoshop.png .photoshop.png
-rm launcher.sh
+cp Installers/allredist/photoshop.png .photoshop.png
+rm -f launcher.sh
 echo -e "#\!/bin/bash\ncd \"$PWD/PS-Prefix/drive_c/Program Files/Adobe/Adobe Photoshop 2021/\" && WINEPREFIX=\"$prefix\" wine photoshop.exe" >> launcher.sh
 chmod +x launcher.sh
-rm photoshop.desktop
-echo -e "[Desktop Entry]\nName=Photoshop CC\nExec=cd $PWD/PS-Prefix/drive_c/Program Files/Adobe/Adobe Photoshop 2021/ && WINEPREFIX=\"$prefix\" wine photoshop.exe\"\nType=Application\nComment=Photoshop CC 2021\nCategories=Graphics;2DGraphics;RasterGraphics;GTK;\nIcon=$PWD/.photoshop.png\nStartupWMClass=photoshop.exe\nMimeType=image/png;image/psd;image;" >> photoshop.desktop
+rm -f photoshop.desktop
+echo -e "[Desktop Entry]\nName=Photoshop CC\nExec=cd \"$PWD/PS-Prefix/drive_c/Program Files/Adobe/Adobe Photoshop 2021/\" && WINEPREFIX=\"$prefix\" wine photoshop.exe\nType=Application\nComment=Photoshop CC 2021\nCategories=Graphics;2DGraphics;RasterGraphics;GTK;\nIcon=$PWD/.photoshop.png\nStartupWMClass=photoshop.exe\nMimeType=image/png;image/psd;image;" >> photoshop.desktop
 chmod +x photoshop.desktop
 mv photoshop.desktop ~/.local/share/applications/photoshop.desktop
-rm -rf installers/allredist
+rm -rf Installers/allredist
 sleep 1
 
 if [ $cameraraw = "1" ]
 then
 echo -e "**************\nInstalling Adobe Camera Raw, please follow the instructions on the installer...\n"
 sleep 1
-WINEPREFIX=$PWD/PS-Prefix/ wine installers/CameraRaw_12_2_1.exe
+WINEPREFIX=$PWD/PS-Prefix/ wine Installers/CameraRaw_12_2_1.exe
 sleep 1
 fi
 
 echo -e "**************\nAdobe Photoshop CC 2021 Installed!\n"
-echo -e "Use this command to run Photoshop if the launcher and desktop files don't work, then make your own desktop entry:\ncd \"$PWD/PS-Prefix/drive_c/Program Files/Adobe/Adobe Photoshop 2021/\" && WINEPREFIX=\"$prefix\" wine photoshop.exe"
+echo -e "Use this command to run Photoshop if the launcher and desktop files don't work, then make your own desktop entry:\n\ncd \"$PWD/PS-Prefix/drive_c/Program Files/Adobe/Adobe Photoshop 2021/\" && WINEPREFIX=\"$prefix\" wine photoshop.exe"
