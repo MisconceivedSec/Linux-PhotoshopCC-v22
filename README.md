@@ -49,7 +49,7 @@ bash installer.sh
 # The installer will also ask you weather you want to install vdk3d proton,
 # this utility allows you to use your GPU with wine.
 
-"Would you like to install Adobe Camera Raw at the end?
+"Would you like to install vdk3d proton?
 (1 - Yes, 0 - No): 0"
 
 # However, it can be a bit buggy. There for it's up to you weather to install it or not, e.g.
