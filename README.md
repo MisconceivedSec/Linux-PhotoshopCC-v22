@@ -55,18 +55,18 @@ bash installer.sh
 # However, it can be a bit buggy. There for it's up to you weather to install it or not, e.g.
 # You can always install it afterwards by running the following command in the "Linux-PhotoshopCC-v22" folder:
 
-WINEPREFIX=$PWD/PS-Prefix/ sh allredist/setup_vkd3d_proton.sh install
+WINEPREFIX=$PWD/PS-Prefix/ sh Installers/allredist/setup_vkd3d_proton.sh install
 
 # And to uninstall:
 
-WINEPREFIX=$PWD/PS-Prefix/ sh allredist/setup_vkd3d_proton.sh uninstall
+WINEPREFIX=$PWD/PS-Prefix/ sh Installers/allredist/setup_vkd3d_proton.sh uninstall
 
 
 # To uninstall Photoshop:
 
 bash uninstaller.sh
 
-# If you want to completely remove this installer, then delete the cloned folder.
+# If you want to completely remove this installer, then delete the cloned folder after running the uninstaller.
 ```
 ## Configure Photoshop:
 <br>
@@ -84,7 +84,7 @@ bash uninstaller.sh
   
   # Open winecfg
   
-  WINEPREFIX=$PWD/PS-prefix winecfg
+  WINEPREFIX=$PWD/PS-Prefix winecfg
   
   # Now navigate to the "Desktop integration" tab and change the theme to "Light"
   
