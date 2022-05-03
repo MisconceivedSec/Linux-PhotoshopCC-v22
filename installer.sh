@@ -31,8 +31,10 @@ sleep 1
 mkdir -p Installers
 
 if ! [ -f Installers/allredist.tar.xz ]; then
+if [ $cameraraw = 1 ]; then
 curl -L "https://drive.google.com/uc?export=download&id=1qcmyHzWerZ39OhW0y4VQ-hOy7639bJPO" > Installers/allredist.tar.xz
 else
+fi
 echo -e "The file allredist.tar.xz exists"
 fi
 
@@ -106,15 +108,15 @@ echo -e "**************\nCopying launcher files...\n"
 sleep 1
 prefix=$PWD/PS-Prefix
 pwd=$PWD
-cp Installers/allredist/photoshop.png .photoshop.png
 rm -f launcher.sh
 echo -e "#\!/bin/bash\ncd \"$PWD/PS-Prefix/drive_c/Program Files/Adobe/Adobe Photoshop 2021/\" && WINEPREFIX=\"$prefix\" wine photoshop.exe" >> launcher.sh
 chmod +x launcher.sh
 rm -f photoshop.desktop
-echo -e "[Desktop Entry]\nName=Photoshop CC\nExec=cd \"$PWD/PS-Prefix/drive_c/Program Files/Adobe/Adobe Photoshop 2021/\" && WINEPREFIX=\"$prefix\" wine photoshop.exe\nType=Application\nComment=Photoshop CC 2021\nCategories=Graphics;2DGraphics;RasterGraphics;GTK;\nIcon=$PWD/.photoshop.png\nStartupWMClass=photoshop.exe\nMimeType=image/png;image/psd;image;" >> photoshop.desktop
+echo -e "[Desktop Entry]\nName=Photoshop CC\nExec=cd \"$PWD/PS-Prefix/drive_c/Program Files/Adobe/Adobe Photoshop 2021/\" && WINEPREFIX=\"$prefix\" wine photoshop.exe\nType=Application\nComment=Photoshop CC 2021\nCategories=Graphics;2DGraphics;RasterGraphics;GTK;\nIcon=$PWD/Images/photoshop.svg\nStartupWMClass=photoshop.exe\nMimeType=image/png;image/psd;image;" >> photoshop.desktop
 chmod +x photoshop.desktop
 mv photoshop.desktop ~/.local/share/applications/photoshop.desktop
 rm -rf Installers/allredist
+rm winetricks
 sleep 1
 
 if [ $cameraraw = "1" ]
