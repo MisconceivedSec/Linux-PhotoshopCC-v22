@@ -49,24 +49,24 @@ bash installer.sh
 # The installer will also ask you weather you want to install vdk3d proton,
 # this utility allows you to use your GPU with wine.
 
-"Would you like to install Adobe Camera Raw at the end?
+"Would you like to install vdk3d proton?
 (1 - Yes, 0 - No): 0"
 
 # However, it can be a bit buggy. There for it's up to you weather to install it or not, e.g.
 # You can always install it afterwards by running the following command in the "Linux-PhotoshopCC-v22" folder:
 
-WINEPREFIX=$PWD/PS-Prefix/ sh allredist/setup_vkd3d_proton.sh install
+WINEPREFIX=$PWD/PS-Prefix/ sh Installers/allredist/setup_vkd3d_proton.sh install
 
 # And to uninstall:
 
-WINEPREFIX=$PWD/PS-Prefix/ sh allredist/setup_vkd3d_proton.sh uninstall
+WINEPREFIX=$PWD/PS-Prefix/ sh Installers/allredist/setup_vkd3d_proton.sh uninstall
 
 
 # To uninstall Photoshop:
 
 bash uninstaller.sh
 
-# If you want to completely remove this installer, then delete the cloned folder.
+# If you want to completely remove this installer, then delete the cloned folder after running the uninstaller.
 ```
 ## Configure Photoshop:
 <br>
@@ -74,7 +74,7 @@ bash uninstaller.sh
 **1-** Launch Photoshop and go to: `Edit -> preferences -> tools`, and uncheck "_Show Tooltips_" (You will not be able to use any plugins otherwise).<br>
 <br>
 
-**2-** **ONLY IF YOU INSTALLED VKD3D PROTON**:  Go to: `Edit -> preferences -> Camera raw... -> performance` and set "_Use graphic processor" to "_Off_"
+**2-** **ONLY IF YOU INSTALLED VKD3D PROTON**:  Go to: `Edit -> preferences -> Camera raw... -> performance` and set "_Use graphic processor_" to "_Off_"
 
 ## To change the wine theme to light Windows 10:
   ```bash
@@ -84,7 +84,7 @@ bash uninstaller.sh
   
   # Open winecfg
   
-  WINEPREFIX=$PWD/PS-prefix winecfg
+  WINEPREFIX=$PWD/PS-Prefix winecfg
   
   # Now navigate to the "Desktop integration" tab and change the theme to "Light"
   
