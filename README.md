@@ -1,6 +1,6 @@
 # Photoshop CC 2021 on Linux!
 
-![alt text](https://github.com/YoungFellow-le/Photoshop-CC2021-Linux/blob/main/screenshot.png?raw=false)
+![Screenshot](https://github.com/YoungFellow-le/Linux-PhotoshopCC-v22/blob/main/Images/screenshot.png?raw=false)
 
 **DISCLAIMER :**
 **Please use this software only if you have an active Photoshop subscription. I'm not responsible for any illegal use of this product.**
