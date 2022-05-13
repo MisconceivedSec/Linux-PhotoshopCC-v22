@@ -31,26 +31,26 @@ sleep 1
 mkdir -p Installers
 
 if ! [ -f Installers/allredist.tar.xz ]; then
-if [ $cameraraw = 1 ]; then
-curl -L "https://drive.google.com/uc?export=download&id=1qcmyHzWerZ39OhW0y4VQ-hOy7639bJPO" > Installers/allredist.tar.xz
+  if [ $cameraraw = 1 ]; then
+    curl -L "https://drive.google.com/uc?export=download&id=1qcmyHzWerZ39OhW0y4VQ-hOy7639bJPO" > Installers/allredist.tar.xz
+  fi
 else
-fi
-echo -e "The file allredist.tar.xz exists"
+  echo -e "The file allredist.tar.xz exists"
 fi
 
 if ! [ -f Installers/AdobePhotoshop2021.tar.xz ]; then
-curl -L "https://lulucloud.mywire.org/FileHosting/GithubProjects/AdobePhotoshop2021.tar.xz" > Installers/AdobePhotoshop2021.tar.xz
+  curl -L "https://lulucloud.mywire.org/FileHosting/GithubProjects/AdobePhotoshop2021.tar.xz" > Installers/AdobePhotoshop2021.tar.xz
 else
-echo -e "The file AdobePhotoshop2021.tar.xz exists"
+  echo -e "The file AdobePhotoshop2021.tar.xz exists"
 fi
 
 if ! [ -f Installers/CameraRaw_12_2_1.exe ]; then
-curl -L "https://download.adobe.com/pub/adobe/photoshop/cameraraw/win/12.x/CameraRaw_12_2_1.exe" > Installers/CameraRaw_12_2_1.exe
+  curl -L "https://download.adobe.com/pub/adobe/photoshop/cameraraw/win/12.x/CameraRaw_12_2_1.exe" > Installers/CameraRaw_12_2_1.exe
 else
-echo -e "The file CameraRaw_12_2_1.exe exists\n"
+  echo -e "The file CameraRaw_12_2_1.exe exists\n"
 fi
-sleep 1
 
+sleep 1
 
 echo -e "**************\nExtracting files...\n"
 sleep 1
@@ -89,12 +89,11 @@ WINEPREFIX=$PWD/PS-Prefix/ wine Installers/allredist/redist/2019/VC_redist.x86.e
 sleep 1
 
 
-if [ $vdk3d = "1" ]
-then
-echo -e "**************\nInstalling vdk3d proton...\n"
-sleep 1
-WINEPREFIX=$PWD/PS-Prefix/ sh Installers/allredist/setup_vkd3d_proton.sh install
-sleep 1
+if [ $vdk3d = "1" ]; then
+  echo -e "**************\nInstalling vdk3d proton...\n"
+  sleep 1
+  WINEPREFIX=$PWD/PS-Prefix/ sh Installers/allredist/setup_vkd3d_proton.sh install
+  sleep 1
 fi
 
 echo -e "**************\nMaking PS directory and copying files...\n"
@@ -119,12 +118,11 @@ rm -rf Installers/allredist
 rm winetricks
 sleep 1
 
-if [ $cameraraw = "1" ]
-then
-echo -e "**************\nInstalling Adobe Camera Raw, please follow the instructions on the installer...\n"
-sleep 1
-WINEPREFIX=$PWD/PS-Prefix/ wine Installers/CameraRaw_12_2_1.exe
-sleep 1
+if [ $cameraraw = "1" ]; then
+  echo -e "**************\nInstalling Adobe Camera Raw, please follow the instructions on the installer...\n"
+  sleep 1
+  WINEPREFIX=$PWD/PS-Prefix/ wine Installers/CameraRaw_12_2_1.exe
+  sleep 1
 fi
 
 echo -e "**************\nAdobe Photoshop CC 2021 Installed!\n"
