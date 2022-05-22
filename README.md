@@ -52,7 +52,7 @@ bash installer.sh
 "Would you like to install vdk3d proton?
 (1 - Yes, 0 - No): 0"
 
-# However, it can be a bit buggy. There for it's up to you weather to install it or not, e.g.
+# However, it can be a bit buggy. There for it's up to you weather to install it or not.
 # You can always install it afterwards by running the following command in the "Linux-PhotoshopCC-v22" folder:
 
 WINEPREFIX=$PWD/PS-Prefix/ sh Installers/allredist/setup_vkd3d_proton.sh install
