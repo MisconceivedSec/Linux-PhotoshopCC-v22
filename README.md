@@ -1,3 +1,7 @@
+# **MIGRATED TO [NEW REPO](https://github.com/YoungFellow-le/Ps-22-Linux)**
+
+
+
 # Photoshop CC 2021 on Linux!
 
 ![Screenshot](https://github.com/YoungFellow-le/Linux-PhotoshopCC-v22/blob/main/Images/screenshot.png?raw=false)
